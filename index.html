@@ -30,11 +30,11 @@
     <main>
         <section id="pos" class="view on">
             <div class="shelf">
-            <div class="tools">
-                <input id="search" type="search" placeholder="Search products" aria-label="Search products">
-                <div id="cats" class="chips"></div>
-            </div>
-            <div id="grid" class="grid"></div>
+                <div class="tools">
+                    <input id="search" type="search" placeholder="Search products" aria-label="Search products">
+                    <div id="cats" class="chips"></div>
+                </div>
+                <div id="grid" class="grid"></div>
             </div>
             <aside class="basket" aria-label="Current bill">
                 <h2>Current Bill</h2>
@@ -51,8 +51,7 @@
                         <dt>Tax(10%)</dt>
                         <dd id="tax">0.00</dd>
                     </div>
-                    <div class="grand"
-                        <dt>Total</dt>
+                    <div class="grand" <dt>Total</dt>
                         <dd id="total">0.00</dd>
                     </div>
                 </dl>
@@ -68,11 +67,25 @@
                 <h2>Products</h2>
                 <button class="primary" data-add="products">Add Product</button>
             </div>
+            <div class="wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Category</th>
+                            <th>Price</th>
+                            <th>Stock</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbProducts"></tbody>
+                </table>
+            </div>
         </section>
     </main>
 
 
-    
+
 
 </body>
 
