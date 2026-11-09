@@ -3,26 +3,23 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DailyMArt POS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DailyMart POS</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Source+Sans+3:wght@400;600&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <header class="top">
-        <h1>Daily Mart</h1>
+        <h1>DailyMart</h1>
         <nav id="nav" aria-label="Main">
-            <button data-view="pos" class="on">CheckOut</button>
+            <button data-view="pos" class="on">Checkout</button>
             <button data-view="products">Products</button>
-            <button data-view="customer">Customer</button>
+            <button data-view="customers">Customers</button>
             <button data-view="orders">Orders</button>
         </nav>
     </header>
@@ -37,7 +34,7 @@
                 <div id="grid" class="grid"></div>
             </div>
             <aside class="basket" aria-label="Current bill">
-                <h2>Current Bill</h2>
+                <h2>Current bill</h2>
                 <label>Customer
                     <select id="custSel"></select>
                 </label>
@@ -45,18 +42,19 @@
                 <dl class="sums">
                     <div>
                         <dt>Subtotal</dt>
-                        <dd id="subtotal">0.00</dd>
+                        <dd id="sub">Rs. 0.00</dd>
                     </div>
                     <div>
-                        <dt>Tax(10%)</dt>
-                        <dd id="tax">0.00</dd>
+                        <dt>Tax (8%)</dt>
+                        <dd id="tax">Rs. 0.00</dd>
                     </div>
-                    <div class="grand" <dt>Total</dt>
-                        <dd id="total">0.00</dd>
+                    <div class="grand">
+                        <dt>Total</dt>
+                        <dd id="tot">Rs. 0.00</dd>
                     </div>
                 </dl>
                 <div class="row">
-                    <button id="clear" class="ghost">Clear Cart</button>
+                    <button id="clear" class="ghost">Clear bill</button>
                     <button id="pay" class="primary">Charge</button>
                 </div>
             </aside>
@@ -64,8 +62,7 @@
 
         <section id="products" class="view">
             <div class="head">
-                <h2>Products</h2>
-                <button class="primary" data-add="products">Add Product</button>
+                <h2>Products</h2><button class="primary" data-add="products">Add product</button>
             </div>
             <div class="wrap">
                 <table>
@@ -85,16 +82,15 @@
 
         <section id="customers" class="view">
             <div class="head">
-                <h2>Customers</h2>
-                <button class="primary" data-add="customers">Add Customer</button>
+                <h2>Customers</h2><button class="primary" data-add="customers">Add customer</button>
             </div>
-            <div class="warp">
+            <div class="wrap">
                 <table>
                     <thead>
                         <tr>
                             <th>Name</th>
-                            <th>Email</th>
                             <th>Phone</th>
+                            <th>Email</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -102,11 +98,39 @@
                 </table>
             </div>
         </section>
+
+        <section id="orders" class="view">
+            <div class="head">
+                <h2>Orders</h2><span id="revenue" class="note"></span>
+            </div>
+            <div class="wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Date</th>
+                            <th>Customer</th>
+                            <th>Total</th>
+                            <th>Status</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbOrders"></tbody>
+                </table>
+            </div>
+        </section>
     </main>
 
-
-
-
+    <dialog id="formDlg">
+        <form id="form" method="dialog"></form>
+    </dialog>
+    <dialog id="rcpDlg">
+        <div id="receipt"></div>
+        <div class="row"><button class="ghost" id="rcpPrint">Print</button><button class="primary"
+                id="rcpClose">Done</button></div>
+    </dialog>
+    <div id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
 </body>
 
 </html>
